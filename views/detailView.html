@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!--  ********************Delete this******************** -->
+    <link href="../public/javascripts/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    
+     
+    <!-- Bootstrap -->
+    <!-- ********************Uncomment this********************
+    <link href="javascripts/bootstrap-3.2.0-dist/css/bootstrap.min.css" ref="stylesheet">
+	-->
+	 
+	 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <style>
+    	html, body{
+    		margin: 0;
+    		padding: 0;
+    		width: 1000px;
+    		margin:0 auto;
+    	}
+    	.mainHeader{
+    		height: 100px;
+    		overflow: hidden;
+    		background-color: red;
+    	}
+    	.buildingTitle{
+    		float: left;
+    		margin-left: 10px;
+    	}
+    	.buildingTitle > span{
+    		line-height: 100px;
+    		font-weight: bold;
+    		font-size: 30px;
+    	}
+    	.logout{
+    		float: right;
+    		margin-right: 10px;
+    	}
+    	.locationHeader{
+    		height: 36px;
+    		background-color: #f5f5f5;
+    	}
+    	.locationHeader > .breadcrumb{
+			float: right;
+			margin: 0;
+			border-radius: 0;
+    	}
+    	#aside{
+    		display: block;
+    		width: 150px;
+    		float: left;
+    		background-color: green;
+    	}
+    	#aside > .sideMenu{
+    		padding: 0;
+    		margin: 0;
+    		list-style-type: none;
+    	}
+    	#aside > .sideMenu > li > a{
+    		display: block;
+    		line-height: 92.7px;
+    		text-align: center;
+    		text-decoration: none;
+    		background-color: yellow;
+    	}
+    	#section{
+    		margin-left: 150px;
+    		width: 850px;
+    		background-color:red;
+    	}
+    	.storySummary > table > tbody > tr > td > .floorDetail{
+    		list-style-type: none;
+    		
+    	}
+    	.storySummary > table > tbody > tr > td > .floorDetail > a{
+    		display: block;
+    		text-decoration: none;
+    		width: 40px;
+    		height: 20px;
+    		background-color: green;
+    		float: left;
+    	}
+    	
+    </style>
+  </head>
+  <body>
+    <header>
+    	<div class="mainHeader">
+    		<div class="buildingTitle">
+    			<span>덕안빌딩 ERP</span>
+    		</div>
+    		<div class="logout">
+    			<span><a href="#">Logout</a></span>
+    		</div>
+    	</div>
+    	<div class="locationHeader">
+    		<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li><a href="#">1층</a></li>
+			  <li class="active">101gh</li>
+			</ol>
+    	</div>
+    </header>
+
+	<div id="wrap">
+		<div id="aside">
+			<ol class="sideMenu">
+				<li><a href="#">세입자 정보</a></li>
+				<li><a href="#">세입자 정보</a></li>
+			</ol>
+		</div>
+		<div id="section">
+			<div class="storySummary">
+				<span>층별 요약</span>
+				<table class="table table-bordered">
+					<tr>
+						<td class="col-md-2">1 층</td>
+						<td class="col-mid-10">
+							<ol class="floorDetail">
+								<li><a href="#">101</a><li>
+								<li><a href="#">101</a><li>
+								<li><a href="#">101</a><li>
+								<li><a href="#">101</a><li>
+								<li><a href="#">101</a><li>
+							</ol>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="lesseeInfo">
+			
+			</div>
+			
+			<div class="paymentInfo">
+			
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+	
+	</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- ********************Delete Below******************** -->
+    <script src="../public/javascripts/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+    <!-- ********************Uncomment this********************
+    <script src="javascripts/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>"
+     -->
+  </body>
+</html>
