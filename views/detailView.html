@@ -35,7 +35,7 @@
     	.mainHeader{
     		height: 100px;
     		overflow: hidden;
-    		background-color: red;
+    		background-color: ;
     	}
     	.buildingTitle{
     		float: left;
@@ -63,7 +63,7 @@
     		display: block;
     		width: 150px;
     		float: left;
-    		background-color: green;
+    		background-color: ;
     	}
     	#aside > .sideMenu{
     		padding: 0;
@@ -75,24 +75,55 @@
     		line-height: 92.7px;
     		text-align: center;
     		text-decoration: none;
+    		background-color: ;
+    	}
+    	#aside > .sideMenu > li > a:hover{
     		background-color: yellow;
     	}
     	#section{
     		margin-left: 150px;
     		width: 850px;
-    		background-color:red;
+    		background-color: ;
     	}
-    	.storySummary > table > tbody > tr > td > .floorDetail{
-    		list-style-type: none;
-    		
+    	#section > .storySummary > span{
+    		display: block;
+    		width: 850px;
+    		line-height: 40px;
     	}
-    	.storySummary > table > tbody > tr > td > .floorDetail > a{
+
+    	#section > .storySummary > table{
+    		margin: 0;
+    		padding: 0;
+    		border: 0;
+    	}
+    	#section > .storySummary > table > tbody > tr > td > .floorDetail{
+    		list-style-type: none;	
+    	}
+    	#section > .storySummary > table > tbody > tr > td > .floorDetail > li{
+    		float: left;
+    	}
+    	#section > .storySummary > table > tbody > tr > td > .floorDetail > li > a{
     		display: block;
     		text-decoration: none;
-    		width: 40px;
     		height: 20px;
+    		width: 33px;
+    		text-align: center;
+    		margin-right: 10px;
+    		background-color: ;
+    	}
+    	#section > .storySummary > table > tbody > tr > td > .floorDetail > li > .in:hover{
+    		background-color: skyblue;
+    	}
+    	#section > .storySummary > table > tbody > tr > td > .floorDetail > li > .out:hover{
+    		background-color: yellow;
+    	}
+    	.in{
+    		border-radius: 5px;
     		background-color: green;
-    		float: left;
+    	}
+    	.out{
+    		border-radius: 5px;
+    		background-color: red;
     	}
     	
     </style>
@@ -131,11 +162,11 @@
 						<td class="col-md-2">1 층</td>
 						<td class="col-mid-10">
 							<ol class="floorDetail">
-								<li><a href="#">101</a><li>
-								<li><a href="#">101</a><li>
-								<li><a href="#">101</a><li>
-								<li><a href="#">101</a><li>
-								<li><a href="#">101</a><li>
+								<li><a class="in" href="#">101</a><li>
+								<li><a class="out" href="#">101</a><li>
+								<li><a class="in" href="#">101</a><li>
+								<li><a class="out" href="#">101</a><li>
+								<li><a class="in" href="#">101</a><li>
 							</ol>
 						</td>
 					</tr>
