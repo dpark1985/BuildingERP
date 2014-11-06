@@ -415,10 +415,15 @@
 
 
 	<script>
-		$("tr td:last-child:contains('미납')").addClass('danger');
-   		
-		var date = new Date();
-   		alert(date.toString());
+	/********************************************************
+	// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
+	***********************************************************/
+		var notPaid = $("tr td:last-child:contains('미납')");
+		if(notPaid){
+			notPaid.parent().addClass('danger');
+		}
+		
+
 
     </script>
 
