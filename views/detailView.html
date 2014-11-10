@@ -85,25 +85,26 @@
     	}
     	
     	#wrap > #section{
-    		margin-left: 150px;
-    		width: 850px;
+    		margin-left: 160px;
+		
+    		width: 840px;
     		overflow: hidden;
     	}
     	#wrap > #section > .storySummary{
-    		width: 850px;
+    		width: 840px;
     		float: left;
     		margin-top: 20px;
     	}
     	#wrap > #section > .storySummary > span{
     		display: block;
-    		width: 850px;
+    		width: 840px;
     		line-height: 40px;
     	}
     	#wrap > #section > .storySummary > table{
     		margin: 0;
     		padding: 0;
     		border: 0;
-    		width: 850px;
+    		width: 840px;
     	}
     	#wrap > #section > .storySummary > table > tbody > tr > td > .floorDetail{
     		list-style-type: none;	
@@ -135,25 +136,25 @@
     		background-color: red;
     	}
     	#wrap > #section > .lesseeInfo{
-    		width: 850px;
+    		width: 840px;
     		float: left;
     		margin-top: 20px;
     	}
     	#wrap > #section > .lesseeInfo > span{
     		display: block;
-    		width: 850px;
+    		width: 840px;
     		line-height: 40px;
     	}
     	#wrap > #section > .lesseeInfo > table{
-			width: 850px;
+			width: 840px;
     	}
     	#wrap > #section > .dayprogress{
-    		width: 850px;
+    		width: 840px;
     		float: left;
 			margin-top: 20px;
     	}
     	#wrap > #section > .dayprogress > .progress{
-    		width: 850px;
+    		width: 840px;
     		height: 30px;	
     		float: left;
     	}
@@ -170,18 +171,54 @@
     		margin: 0 auto;
     	}
     	#wrap > #section > .paymentInfo{
-    		width: 850px;
+    		width: 840px;
     		float: left;
 			margin-top: 20px;
     	}
     	#wrap > #section > .paymentInfo > table{
-    		width: 850px;
+    		width: 840px;
     	}
     </style>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     
-    
+	<script>
+
+		
+		$(document).ready(function(){
+			/********************************************************
+			// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
+			*********************************************************/
+			var notPaid = $("tr td:last-child:contains('미납')");
+			if(notPaid){
+				notPaid.parent().addClass('danger');
+			}
+			
+			/********************************************************
+			// 계약 시작일 부터 계약 만료일까지 남은 시간 계산
+			*********************************************************/
+			var contract_Start = new Date(2014, 4, 19);
+			var contract_End = new Date(2015, 4, 18);
+			var contract_Current = new Date();
+			
+			var contract_Start_year = contract_Start.getYear();
+			var contract_Current_year = contract_Current.getYear();
+			
+			//alert(contract_Start_year);
+			//alert(contract_Current_year);
+			//alert(contract_Start_year + " " + contract_Current_year);
+			alert(contract_Current_year)
+			
+			var contract_Remain = contract_End - contract_Start;
+
+
+			//alert(contract_Today.getMonth()+1);
+		});
+
+		
+
+
+    </script>
   </head>
   <body>
     <header>
@@ -197,7 +234,7 @@
     		<ol class="breadcrumb">
 			  <li><a href="#">Home</a></li>
 			  <li><a href="#">1층</a></li>
-			  <li class="active">101gh</li>
+			  <li class="active">101호</li>
 			</ol>
     	</div>
     </header>
@@ -239,7 +276,8 @@
 					    <td class="col-mid-2" rowspan="5">Lessee</td>
 					    <td class="col-mid-2">Name</td>
 					    <td class="col-mid-3">Daniel Park</td>
-					    <td class="col-mid-5" colspan="2"></td>
+					    <td class="col-mid-2">방 번호</td>
+					    <td class="col-mid-3">101호</td>
 					  </tr>
 					  <tr>
 					    <td class="col-mid-2">Phone Number</td>
@@ -385,7 +423,7 @@
 				    <td>-</td>
 				    <td>2015.02.25</td>
 				    <td>-</td>
-				    <td>-</td>
+				    <td>미납</td>
 				  </tr>
 				  <tr>
 				    <td>12</td>
@@ -414,18 +452,7 @@
 
 
 
-	<script>
-	/********************************************************
-	// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
-	***********************************************************/
-		var notPaid = $("tr td:last-child:contains('미납')");
-		if(notPaid){
-			notPaid.parent().addClass('danger');
-		}
-		
 
-
-    </script>
 
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
