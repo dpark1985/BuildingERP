@@ -145,6 +145,15 @@
     		width: 840px;
     		line-height: 40px;
     	}
+    	#wrap > #section > .lesseeInfo > .jumbotron{
+    		width: 840px;
+    		height: 259px;
+    	}
+    	#wrap > #section > .lesseeInfo > .jumbotron > p{
+    		text-align: center;
+    		margin: 0;
+    		margin-top: 59px;
+    	}
     	#wrap > #section > .lesseeInfo > table{
 			width: 840px;
     	}
@@ -186,39 +195,59 @@
 
 		
 		$(document).ready(function(){
-			/********************************************************
+			//********************************************************/
 			// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
-			*********************************************************/
+			//********************************************************/
 			var notPaid = $("tr td:last-child:contains('미납')");
 			if(notPaid){
 				notPaid.parent().addClass('danger');
 			}
 			
-			/********************************************************
-			// 계약 시작일 부터 계약 만료일까지 남은 시간 계산
-			*********************************************************/
+			//********************************************************/
+			// 계약 시작일 부터 현재 날짜까지 날짜 계산
+			// getDayPast(start, current);
+			// start		<Object: Date()>
+			// current		<object: Date()>
+			// return		<Number>
+			//********************************************************/
 			function getDayPast(start, current){
 				if(start.getFullYear() == current.getFullYear()){
-					var currentPast = getDayCount(current.getMonth(), current.getDate());
-					var contractStartPast = getDayCount(start.getMonth(), start.getDate());
+					var currentPast = getDayCount(current.getFullYear(), current.getMonth(), current.getDate());
+					var contractStartPast = getDayCount(start.getFullYear(), start.getMonth(), start.getDate());
 					return (currentPast - contractStartPast + 1);
 				} else{
 					var currentPast = getDayCount(current.getMonth(), current.getDate());
 					var contractStartPast = getDayCount(start.getMonth(), start.getDate());
 					return (365-contractStartPast + currentPast);
 				}
+				
+				function getDayCount(year, month, day){
+					var count = 0;
+					var dayPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+					var dayPerMonthL = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+					
+					/********************************************************
+					// Leap Year Validation
+					*********************************************************/
+					if((year%4) == 0 && (year%400) == 0 && (year%100) != 0){
+						for(var i=0; i<month; i++){count += dayPerMonthL[i];}
+						count += day;
+						return count;
+					}else{
+						for(var i=0; i<month; i++){count += dayPerMonth[i];}
+						count += day;
+						return count;
+					}
+				}
 			}
-			function getDayCount(month, day){
-				var count = 0;
-				var dayPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-				for(var i=0; i<month; i++){count += dayPerMonth[i];}
-				count += day;
-				return count;
-			}
+
 			
-			/********************************************************
+			//********************************************************/
 			// Progressive Bar percentage 변경
-			*********************************************************/
+			// setProgress(contractStart, contractCurrent);
+			// contractStart		<Object: Date()>
+			// contractCurrent 	<Object: Date()>
+			//********************************************************/
 			function setProgress(contractStart, contractCurrent){
 				var dayPast = getDayPast(contractStart, contractCurrent);
 				var progressVal = Math.round((dayPast/365)*100);
@@ -226,22 +255,61 @@
 				$('#dayProgress').attr({	style: "width: " + progressVal +"%;"});
 			}
 			
-			/********************************************************
+			//********************************************************/
+			// 새로운 데이터 입력 이벤트, 임차인 데이터가 없을 경우 새로운 정보 입력
+			// lesseeInfoField(dataExist);
+			// dataExist <Boolean>
+			// true:	정보 있음
+			// false:	정보 없음 */
+			//********************************************************/
+			function lesseeInfoField(dataExist){
+				if(dataExist == true){
+					$('#newDataEnter').hide();
+					$('#existData').show();
+				}
+				else{
+					$('#existData').hide();
+					$('#newDataEnter').show();
+				}
+			}
+			$('#newDataEnterBtn').click(function(){
+				$('#newDataEnter').hide();
+				$('#existData').show();
+			})
+			
+			
+			
+			//********************************************************/
 			// 데이터 초기화
-			*********************************************************/
+			//********************************************************/
 			function init(){
+				
+				
+				
+				//********************************************************/
+				// 임차인 정보 유무 입력 //
+				lesseeInfoField(false);
+				//********************************************************/
+				
+				
+				//********************************************************/
+				// 임대 기간을 계산하고 Progress Bar에 적용
+				// 아래 3줄은 삭제 예정
 				var contractStart = new Date(2014, (4-1), 19);
 				var contractEnd = new Date(2015, (4-1), 18);
 				var contractCurrent = new Date();
 				
 				setProgress(contractStart, contractCurrent);
+				//********************************************************/
+
 			}
 			
 			
 			
-			/********************************************************
+			
+			//********************************************************/
 			// 프로그램 실행
-			*********************************************************/
+			//********************************************************/
 			init();
 
 		});
@@ -301,45 +369,49 @@
 			
 			<div class="lesseeInfo">
 				<span>임차인 정보</span>
-				<table class="table table-hover">
+
+				<div id="newDataEnter" class="jumbotron">
+					<p><a id="newDataEnterBtn" class="btn btn-primary btn-lg" href="#" role="button">새로운 데이터</a></p>
+				</div>
+				<table id="existData" class="table table-hover">
 					<tbody>
 					  <tr>
-					    <td class="col-mid-2" rowspan="5">Lessee</td>
-					    <td class="col-mid-2">Name</td>
-					    <td class="col-mid-3">Daniel Park</td>
+					    <td class="col-mid-2" rowspan="5">임차인</td>
+					    <td class="col-mid-2">이름</td>
+					    <td class="col-mid-3">박준현</td>
 					    <td class="col-mid-2">방 번호</td>
 					    <td class="col-mid-3">101호</td>
 					  </tr>
 					  <tr>
-					    <td class="col-mid-2">Phone Number</td>
+					    <td class="col-mid-2">전화번호</td>
 					    <td class="col-mid-3">010-7112-9084</td>
-					    <td class="col-mid-2">SSN</td>
+					    <td class="col-mid-2">주민번호</td>
 					    <td class="col-mid-3">850716-1267825</td>
 					  </tr>
 					  <tr>
-					    <td class="col-mid-2">Monthly Fee</td>
-					    <td class="col-mid-3">500,000</td>
-					    <td class="col-mid-2">Deposit</td>
-					    <td class="col-mid-3">5,000,000</td>
+					    <td class="col-mid-2">차임금</td>
+					    <td class="col-mid-3">500,000 원</td>
+					    <td class="col-mid-2">보증금</td>
+					    <td class="col-mid-3">5,000,000 원</td>
 					  </tr>
 					  <tr>
-					    <td class="col-mid-2">Contract Start</td>
+					    <td class="col-mid-2">계약 시작일</td>
 					    <td class="col-mid-3">2014.04.25</td>
-					    <td class="col-mid-2">Contract End</td>
+					    <td class="col-mid-2">계약 만료일</td>
 					    <td class="col-mid-3">2015.04.24</td>
 					  </tr>
 					  <tr>
-					    <td class="col-mid-2">Address</td>
+					    <td class="col-mid-2">주소</td>
 					    <td class="col-mid-8" colspan="3">11 Myrtle st. Somerville, MA 20145</td>
 					  </tr>
 					  <tr>
-					    <td class="col-mid-2" rowspan="2">Greentee</td>
-					    <td class="col-mid-2">Name</td>
-					    <td class="col-mid-3">Choi Soran</td>
+					    <td class="col-mid-2" rowspan="2">보증인</td>
+					    <td class="col-mid-2">이름</td>
+					    <td class="col-mid-3">최소란</td>
 					    <td class="col-mid-5" colspan="2"></td>
 					  </tr>
 					  <tr>
-					    <td class="col-mid-2">Phone Number</td>
+					    <td class="col-mid-2">전화번호</td>
 					    <td class="col-mid-3">010-5465-3404</td>
 					    <td class="col-mid-2">SSN</td>
 					    <td class="col-mid-3">-</td>
@@ -352,8 +424,9 @@
 				<span class="col-mid-4 left">2014.04.25</span>
 				<span class="col-mid-4 right">2015.04.24</span>
 				<div class="progress">
-				  <div id="dayProgress" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-				    60%
+				  <div id="dayProgress" class="progress-bar" role="progressbar" 
+				  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ;">
+				    0%
 				  </div>
 				</div>
 			</div>
