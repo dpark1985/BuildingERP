@@ -154,8 +154,23 @@
     		margin: 0;
     		margin-top: 59px;
     	}
-    	#wrap > #section > .lesseeInfo > table{
+    	#wrap > #section > .lesseeInfo ~ table{
 			width: 840px;
+    	}
+    	#wrap > #section > .lesseeInfo > #newDataForm > #newDataFormTable > tbody > tr > .middle{
+    		vertical-align: middle;
+    	}
+    	#wrap > #section > .lesseeInfo > #newDataForm > #newDataFormBtnEnter{
+    		width: 840px;
+    	}
+    	#wrap > #section > .lesseeInfo > #newDataForm > #newDataFormBtnConfirm{
+    		width: 840px;
+    	}
+    	#wrap > #section > .lesseeInfo > #newDataForm > #newDataFormBtnEnter > button{
+    		width: 100%;
+    	}
+    	#wrap > #section > .lesseeInfo > #newDataForm > #newDataFormBtnConfirm > button{
+    		width: 100%;
     	}
     	#wrap > #section > .dayprogress{
     		width: 840px;
@@ -265,17 +280,27 @@
 			function lesseeInfoField(dataExist){
 				if(dataExist == true){
 					$('#newDataEnter').hide();
+					$('#newDataForm').hide();
+					$('#newDataFormBtnEnter').hide();
+					$('#newDataFormBtnConfirm').hide();
 					$('#existData').show();
 				}
-				else{
+				else{//dataExist == false
 					$('#existData').hide();
+					$('#newDataForm').hide();
+					$('#newDataFormBtnConfirm').hide();
 					$('#newDataEnter').show();
 				}
 			}
 			$('#newDataEnterBtn').click(function(){
 				$('#newDataEnter').hide();
-				$('#existData').show();
+				$('#newDataForm').show();
 			})
+			
+			$('#newDataFormBtnEnter').click(function(){
+				$('#newDataFormBtnEnter').hide();
+				$('#newDataFormBtnConfirm').show();
+			});
 			
 			
 			
@@ -369,6 +394,55 @@
 				<div id="newDataEnter" class="jumbotron">
 					<p><a id="newDataEnterBtn" class="btn btn-primary btn-lg" href="#" role="button">새로운 데이터</a></p>
 				</div>
+				<form method="post" id="newDataForm">
+					<table id="newDataFormTable" class="table table-hover">
+						<tbody>
+						  <tr>
+						    <td class="col-mid-2" rowspan="5">임차인</td>
+						    <td class="col-mid-2 middle">이름</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="이름"></td>
+						    <td class="col-mid-2 middle">방 번호</td>
+						    <td class="col-mid-3 middle">101호</td>
+						  </tr>
+						  <tr>
+						    <td class="col-mid-2 middle">전화번호</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="010-1234-1234"></td>
+						    <td class="col-mid-2 middle">주민번호</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="123456-1234567"></td>
+						  </tr>
+						  <tr>
+						    <td class="col-mid-2 middle">차임금</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="원"></td>
+						    <td class="col-mid-2 middle">보증금</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="원"></td>
+						  </tr>
+						  <tr>
+						    <td class="col-mid-2 middle">계약 시작일</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="2014.04.19"></td>
+						    <td class="col-mid-2 middle">계약 만료일</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="2015.04.18"></td>
+						  </tr>
+						  <tr>
+						    <td class="col-mid-2 middle">주소</td>
+						    <td class="col-mid-8" colspan="3"><input type="text" class="form-control" placeholder="주소"></td>
+						  </tr>
+						  <tr>
+						    <td class="col-mid-2" rowspan="2">보증인</td>
+						    <td class="col-mid-2 middle">이름</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="이름"></td>
+						    <td class="col-mid-5" colspan="2"></td>
+						  </tr>
+						  <tr>
+						    <td class="col-mid-2 middle">전화번호</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="010-1234-1234"></td>
+						    <td class="col-mid-2 middle">주민번호</td>
+						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="123456-1234567"></td>
+						  </tr>
+						</tbody>
+					</table>
+					<div id="newDataFormBtnEnter" class="btn-group col-mid-12"><button type="button" class="btn btn-primary">저장</button></div>
+					<div id="newDataFormBtnConfirm" class="btn-group col-mid-12"><button type="button" class="btn btn-success">확정</button></div>
+				</form>
 				<table id="existData" class="table table-hover">
 					<tbody>
 					  <tr>
@@ -376,7 +450,7 @@
 					    <td class="col-mid-2">이름</td>
 					    <td class="col-mid-3">박준현</td>
 					    <td class="col-mid-2">방 번호</td>
-					    <td class="col-mid-3">101호</td>
+					    <td class="col-mid-3 middle">101호</td>
 					  </tr>
 					  <tr>
 					    <td class="col-mid-2">전화번호</td>
@@ -409,7 +483,7 @@
 					  <tr>
 					    <td class="col-mid-2">전화번호</td>
 					    <td class="col-mid-3">010-5465-3404</td>
-					    <td class="col-mid-2">SSN</td>
+					    <td class="col-mid-2">주민번호</td>
 					    <td class="col-mid-3">-</td>
 					  </tr>
 					</tbody>
@@ -420,7 +494,7 @@
 				<span class="col-mid-4 left">2014.04.25</span>
 				<span class="col-mid-4 right">2015.04.24</span>
 				<div class="progress">
-				  <div id="dayProgress" class="progress-bar" role="progressbar" 
+				  <div id="dayProgress" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" 
 				  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ;">
 				    0%
 				  </div>
