@@ -210,13 +210,7 @@
 
 		
 		$(document).ready(function(){
-			//********************************************************/
-			// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
-			//********************************************************/
-			var notPaid = $("tr td:last-child:contains('미납')");
-			if(notPaid){
-				notPaid.parent().addClass('danger');
-			}
+			
 			
 			//********************************************************/
 			// 계약 시작일 부터 현재 날짜까지 날짜 계산
@@ -303,6 +297,50 @@
 			});
 			
 			
+			//********************************************************/
+			// 입력된 데이터의 유효성 검사 
+			//********************************************************/
+			function validationInput(){
+				var lName = $('input[name|="lesseeName"]');
+				var lPhone = $('input[name|="lesseePhone"]');
+				var lSSN = $('input[name|="lesseeSSN"]').val();
+				var lMonthlyFee = $('input[name|="lesseeMonthlyFee"]');
+				var lDeposit = $('input[name|="lesseeDeposit"]').val();
+				var lContractStart = $('input[name|="lesseeContractStart"]');
+				var lContractEnd = $('input[name|="lesseeContractEnd"]');
+				var lAddress = $('input[name|="lesseeAddress"]');
+				
+				var gName = $('input[name|="guarantorName"]');
+				var gPhone = $('input[name|="guarantorPhone"]');
+				var gSSN = $('input[name|="guarantorSSN"]');
+				
+				
+				var lNameResult = nameValidation(lName);
+				var lPhoneResult = phoneValidation(lPhone);
+				
+				function phoneValidation(phone){
+					
+				}
+				
+				function nameValidation(name){
+					if(name.val() == ""){
+						name.parent().addClass('form-group has-error');
+						return false;
+					}else{
+						name.parent().addClass('form-group has-success');
+						return true;
+					}
+				}
+
+				
+			};
+
+			$('#newDataFormBtnEnter').click(function(){
+				var result = validationInput();
+			});
+			
+			
+			
 			
 			//********************************************************/
 			// 데이터 초기화
@@ -311,19 +349,31 @@
 
 				//********************************************************/
 				// 임차인 정보 유무 입력 //
-				lesseeInfoField(false);
 				//********************************************************/
+				lesseeInfoField(false);
+				
+				
 				
 				
 				//********************************************************/
 				// 임대 기간을 계산하고 Progress Bar에 적용
 				// 아래 3줄은 삭제 예정
+				//********************************************************/
 				var contractStart = new Date(2014, (4-1), 19);
 				var contractEnd = new Date(2015, (4-1), 18);
 				var contractCurrent = new Date();
 				
 				setProgress(contractStart, contractCurrent);
+				
+				
+				
 				//********************************************************/
+				// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
+				//********************************************************/
+				var notPaid = $("tr td:last-child:contains('미납')");
+				if(notPaid){
+					notPaid.parent().addClass('danger');
+				}
 
 			}
 			
@@ -397,48 +447,48 @@
 						  <tr>
 						    <td class="col-mid-2" rowspan="5">임차인</td>
 						    <td class="col-mid-2 middle">이름</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="이름"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseeName" placeholder="이름"></td>
 						    <td class="col-mid-2 middle">방 번호</td>
 						    <td class="col-mid-3 middle">101호</td>
 						  </tr>
 						  <tr>
 						    <td class="col-mid-2 middle">전화번호</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="010-1234-1234"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseePhone" placeholder="010-1234-1234"></td>
 						    <td class="col-mid-2 middle">주민번호</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="123456-1234567"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseeSSN" placeholder="123456-1234567"></td>
 						  </tr>
 						  <tr>
 						    <td class="col-mid-2 middle">차임금</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="원"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseeMonthlyFee" placeholder="원"></td>
 						    <td class="col-mid-2 middle">보증금</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="원"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseeDeposit" placeholder="원"></td>
 						  </tr>
 						  <tr>
 						    <td class="col-mid-2 middle">계약 시작일</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="2014.04.19"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseeContractStart" placeholder="2014.04.19"></td>
 						    <td class="col-mid-2 middle">계약 만료일</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="2015.04.18"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="lesseeContractEnd" placeholder="2015.04.18"></td>
 						  </tr>
 						  <tr>
 						    <td class="col-mid-2 middle">주소</td>
-						    <td class="col-mid-8" colspan="3"><input type="text" class="form-control" placeholder="주소"></td>
+						    <td class="col-mid-8" colspan="3"><input type="text" class="form-control" name="lesseeAddress" placeholder="주소"></td>
 						  </tr>
 						  <tr>
 						    <td class="col-mid-2" rowspan="2">보증인</td>
 						    <td class="col-mid-2 middle">이름</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="이름"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="guarantorName" placeholder="이름"></td>
 						    <td class="col-mid-5" colspan="2"></td>
 						  </tr>
 						  <tr>
 						    <td class="col-mid-2 middle">전화번호</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="010-1234-1234"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="guarantorPhone" placeholder="010-1234-1234"></td>
 						    <td class="col-mid-2 middle">주민번호</td>
-						    <td class="col-mid-3"><input type="text" class="form-control" placeholder="123456-1234567"></td>
+						    <td class="col-mid-3"><input type="text" class="form-control" name="guarantorSSN" placeholder="123456-1234567"></td>
 						  </tr>
 						</tbody>
 					</table>
-					<div id="newDataFormBtnEnter" class="btn-group col-mid-12"><button type="button" class="btn btn-primary">저장</button></div>
-					<div id="newDataFormBtnConfirm" class="btn-group col-mid-12"><button type="button" class="btn btn-success">확정</button></div>
+					<div id="newDataFormBtnEnter" class="btn-group col-mid-12"><button id="btnCheck" type="button" class="btn btn-primary">저장</button></div>
+					<div id="newDataFormBtnConfirm" class="btn-group col-mid-12"><button id="btnConfirm" type="button" class="btn btn-success">확정</button></div>
 				</form>
 				<table id="existData" class="table table-hover">
 					<tbody>
