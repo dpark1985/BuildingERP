@@ -273,7 +273,7 @@
 			//********************************************************/
 			function lesseeInfoField(dataExist){
 				if(dataExist == true){
-					$('#newDataEnter').hide();
+					$('#newDataEnterJumbotron').hide();
 					$('#newDataForm').hide();
 					$('#newDataFormBtnEnter').hide();
 					$('#newDataFormBtnConfirm').hide();
@@ -283,11 +283,11 @@
 					$('#existData').hide();
 					$('#newDataForm').hide();
 					$('#newDataFormBtnConfirm').hide();
-					$('#newDataEnter').show();
+					$('#newDataEnterJumbotron').show();
 				}
 			}
 			$('#newDataEnterBtn').click(function(){
-				$('#newDataEnter').hide();
+				$('#newDataEnterJumbotron').hide();
 				$('#newDataForm').show();
 			})
 			
@@ -334,6 +334,8 @@
 
 				
 			};
+			
+
 
 			$('#newDataFormBtnEnter').click(function(){
 				var result = validationInput();
@@ -436,9 +438,9 @@
 			</div>
 			
 			<div class="lesseeInfo">
-				<span>임차인 정보</span>
+				<span id="lesseeInfoSpan">임차인 정보</span>
 
-				<div id="newDataEnter" class="jumbotron">
+				<div id="newDataEnterJumbotron" class="jumbotron">
 					<p><a id="newDataEnterBtn" class="btn btn-primary btn-lg" href="#" role="button">새로운 데이터</a></p>
 				</div>
 				<form method="post" id="newDataForm">

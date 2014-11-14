@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <!--  ********************Delete this******************** -->
+    <link href="../public/javascripts/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet">
+    
+     
+    <!-- Bootstrap -->
+    <!-- ********************Uncomment this********************
+    <link href="javascripts/bootstrap-3.2.0-dist/css/bootstrap.min.css" ref="stylesheet">
+	-->
+	 
+	 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <style>
+    	html, body{
+    		margin: 0;
+    		padding: 0;
+    		width: 1000px;
+    		margin:0 auto;
+    	}
+    	.mainHeader{
+    		height: 100px;
+    		overflow: hidden;
+    		background-color: ;
+    	}
+    	.buildingTitle{
+    		float: left;
+    		margin-left: 10px;
+    	}
+    	.buildingTitle > span{
+    		line-height: 100px;
+    		font-weight: bold;
+    		font-size: 30px;
+    	}
+    	.logout{
+    		float: right;
+    		margin-right: 10px;
+    	}
+    	.locationHeader{
+    		height: 36px;
+    		background-color: #f5f5f5;
+    	}
+    	.locationHeader > .breadcrumb{
+			float: right;
+			margin: 0;
+			border-radius: 0;
+    	}
+    	#wrap{
+    		overflow: hidden;
+    	}
+    	#wrap > #aside{
+    		display: block;
+    		width: 150px;
+    		float: left;
+    		background-color: ;
+    	}
+    	#wrap > #aside > .sideMenu{
+    		padding: 0;
+    		margin: 0;
+    		list-style-type: none;
+    	}
+    	#wrap > #aside > .sideMenu > li > a{
+    		display: block;
+    		line-height: 92.7px;
+    		text-align: center;
+    		text-decoration: none;
+    		background-color: ;
+    	}
+    	#wrap > #aside > .sideMenu > li > a:hover{
+    		background-color: yellow;
+    	}
+    	
+    	#wrap > #section{
+    		margin-left: 160px;
+		
+    		width: 840px;
+    		overflow: hidden;
+    	}
+    	#wrap > #section > .storySummary{
+    		width: 840px;
+    		float: left;
+    		margin-top: 20px;
+    	}
+    	#wrap > #section > .storySummary > span{
+    		display: block;
+    		width: 840px;
+    		line-height: 40px;
+    	}
+    	#wrap > #section > .storySummary > table{
+    		margin: 0;
+    		padding: 0;
+    		border: 0;
+    		width: 840px;
+    	}
+    	#wrap > #section > .storySummary > table > tbody > tr > td > .floorDetail{
+    		list-style-type: none;	
+    	}
+    	#wrap > #section > .storySummary > table > tbody > tr > td > .floorDetail > li{
+    		float: left;
+    	}
+    	#wrap > #section > .storySummary > table > tbody > tr > td > .floorDetail > li > a{
+    		display: block;
+    		text-decoration: none;
+    		height: 20px;
+    		width: 33px;
+    		text-align: center;
+    		margin-right: 10px;
+    		background-color: ;
+    	}
+    	#wrap > #section > .storySummary > table > tbody > tr > td > .floorDetail > li > .in:hover{
+    		background-color: skyblue;
+    	}
+    	#wrap > #section > .storySummary > table > tbody > tr > td > .floorDetail > li > .out:hover{
+    		background-color: yellow;
+    	}
+    	.in{
+    		border-radius: 5px;
+    		background-color: green;
+    	}
+    	.out{
+    		border-radius: 5px;
+    		background-color: red;
+    	}
+    	#wrap > #section > .lesseeInfo{
+    		width: 840px;
+    		float: left;
+    		margin-top: 20px;
+    	}
+    	#wrap > #section > .lesseeInfo > span{
+    		display: block;
+    		width: 840px;
+    		line-height: 40px;
+    	}
+    	#wrap > #section > .lesseeInfo > #lesseeInfoSpan > .jumbotron{
+    		width: 840px;
+    		height: 259px;
+    	}
+    	#wrap > #section > .lesseeInfo > #lesseeInfoSpan > .jumbotron > p{
+    		text-align: center;
+    		margin: 0;
+    		margin-top: 59px;
+    	}
+    	#wrap > #section > .lesseeInfo ~ table{
+			width: 840px;
+    	}
+    	#wrap > #section > .lesseeInfo > #newDataForm > #newDataFormTable > tbody > tr > .middle{
+    		vertical-align: middle;
+    	}
+    	#wrap > #section > .lesseeInfo > #lesseeInfoSpan > #newDataForm > #newDataFormBtnEnter{
+    		width: 840px;
+    	}
+    	#wrap > #section > .lesseeInfo > #lesseeInfoSpan > #newDataForm > #newDataFormBtnConfirm{
+    		width: 840px;
+    	}
+    	#wrap > #section > .lesseeInfo > #lesseeInfoSpan >#newDataForm > #newDataFormBtnEnter > button{
+    		width: 100%;
+    	}
+    	#wrap > #section > .lesseeInfo > #lesseeInfoSpan >#newDataForm > #newDataFormBtnConfirm > button{
+    		width: 100%;
+    	}
+    	#wrap > #section > .dayprogress{
+    		width: 840px;
+    		float: left;
+			margin-top: 20px;
+    	}
+    	#wrap > #section > .dayprogress > .progress{
+    		width: 840px;
+    		height: 30px;	
+    		float: left;
+    	}
+    	#wrap > #section > .dayprogress > .progress > .progress-bar{
+    		line-height: 30px;
+    	}
+    	.left{
+    		float: left;
+    	}
+    	.right{
+    		float: right;
+    	}
+    	.center{
+    		margin: 0 auto;
+    	}
+    	#wrap > #section > .paymentInfo{
+    		width: 840px;
+    		float: left;
+			margin-top: 20px;
+    	}
+    	#wrap > #section > .paymentInfo > table{
+    		width: 840px;
+    	}
+    </style>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../public/javascripts/jquery-2.1.1/jquery-2.1.1.js"></script>
+    
+	<script>
+		$(document).ready(function(){
+			//********************************************************/
+			// 프로그램 실행
+			//********************************************************/
+			init();
+			
+		    $('#newDataEnterBtn').click(function(){
+				$('#newDataEnterJumbotron').remove();
+				$('<form method="post" id="newDataForm"><table id="newDataFormTable" class="table table-hover"><tbody> <tr> <td class="col-mid-2" rowspan="5">임차인</td><td class="col-mid-2 middle">이름</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseeName" placeholder="이름"></td><td class="col-mid-2 middle">방 번호</td><td class="col-mid-3 middle">101호</td></tr><tr> <td class="col-mid-2 middle">전화번호</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseePhone" placeholder="010-1234-1234"></td><td class="col-mid-2 middle">주민번호</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseeSSN" placeholder="123456-1234567"></td></tr><tr> <td class="col-mid-2 middle">차임금</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseeMonthlyFee" placeholder="원"></td><td class="col-mid-2 middle">보증금</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseeDeposit" placeholder="원"></td></tr><tr> <td class="col-mid-2 middle">계약 시작일</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseeContractStart" placeholder="2014.04.19"></td><td class="col-mid-2 middle">계약 만료일</td><td class="col-mid-3"><input type="text" class="form-control" name="lesseeContractEnd" placeholder="2015.04.18"></td></tr><tr> <td class="col-mid-2 middle">주소</td><td class="col-mid-8" colspan="3"><input type="text" class="form-control" name="lesseeAddress" placeholder="주소"></td></tr><tr> <td class="col-mid-2" rowspan="2">보증인</td><td class="col-mid-2 middle">이름</td><td class="col-mid-3"><input type="text" class="form-control" name="guarantorName" placeholder="이름"></td><td class="col-mid-5" colspan="2"></td></tr><tr> <td class="col-mid-2 middle">전화번호</td><td class="col-mid-3"><input type="text" class="form-control" name="guarantorPhone" placeholder="010-1234-1234"></td><td class="col-mid-2 middle">주민번호</td><td class="col-mid-3"><input type="text" class="form-control" name="guarantorSSN" placeholder="123456-1234567"></td></tr></tbody></table><div id="newDataFormBtnEnter" class="btn-group col-mid-12"><button id="btnCheck" type="button" class="btn btn-primary">저장</button></div><div id="newDataFormBtnConfirm" class="btn-group col-mid-12"><button id="btnConfirm" type="button" class="btn btn-success">확정</button></div></form>').appendTo('#lesseeInfoSpan');
+				$('#newDataFormBtnConfirm').hide();
+
+			})
+			
+			$(document).on('click', '#btnCheck', function(){
+				var result = validationInput();
+				if(result == true){
+					$('#newDataFormBtnEnter').remove();
+					$('#newDataFormBtnConfirm').show();
+				}else{
+					alert('정확한 정보를 입력해주세요');
+				}
+				
+			});
+		});
+    </script>
+    <script>
+		//********************************************************/
+		// 계약 시작일 부터 현재 날짜까지 날짜 계산
+		// getDayPast(start, current);
+		// start		<Object: Date()>
+		// current		<object: Date()>
+		// return		<Number>
+		//********************************************************/
+		function getDayPast(start, current){
+			if(start.getFullYear() == current.getFullYear()){
+				var currentPast = getDayCount(current.getFullYear(), current.getMonth(), current.getDate());
+				var contractStartPast = getDayCount(start.getFullYear(), start.getMonth(), start.getDate());
+				return (currentPast - contractStartPast + 1);
+			} else{
+				var currentPast = getDayCount(current.getMonth(), current.getDate());
+				var contractStartPast = getDayCount(start.getMonth(), start.getDate());
+				return (365-contractStartPast + currentPast);
+			}
+			
+			function getDayCount(year, month, day){
+				var count = 0;
+				var dayPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				var dayPerMonthL = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				
+				/********************************************************
+				// Leap Year Validation
+				*********************************************************/
+				if((year%4) == 0 && (year%400) == 0 && (year%100) != 0){
+					for(var i=0; i<month; i++){count += dayPerMonthL[i];}
+					count += day;
+					return count;
+				}else{
+					for(var i=0; i<month; i++){count += dayPerMonth[i];}
+					count += day;
+					return count;
+				}
+			}
+		}
+	
+		
+		//********************************************************/
+		// Progressive Bar percentage 변경
+		// setProgress(contractStart, contractCurrent);
+		// contractStart		<Object: Date()>
+		// contractCurrent 	<Object: Date()>
+		//********************************************************/
+		function setProgress(contractStart, contractCurrent){
+			var dayPast = getDayPast(contractStart, contractCurrent);
+			var progressVal = Math.round((dayPast/365)*100);
+			$('#dayProgress').html(progressVal+"%");
+			$('#dayProgress').attr({	style: "width: " + progressVal +"%;"});
+		}
+		
+		//********************************************************/
+		// 새로운 데이터 입력 이벤트, 임차인 데이터가 없을 경우 새로운 정보 입력
+		// lesseeInfoField(dataExist);
+		// dataExist <Boolean>
+		// true:	정보 있음
+		// false:	정보 없음 */
+		//********************************************************/
+		function lesseeInfoField(dataExist){
+			if(dataExist == true){
+				//$('#newDataEnterJumbotron').hide();
+				//$('#newDataForm').hide();
+				//$('#newDataFormBtnEnter').hide();
+				//$('#newDataFormBtnConfirm').hide();
+				$('<table id="existData" class="table table-hover"><tbody> <tr> <td class="col-mid-2" rowspan="5">임차인</td><td class="col-mid-2">이름</td><td class="col-mid-3">박준현</td><td class="col-mid-2">방 번호</td><td class="col-mid-3 middle">101호</td></tr><tr> <td class="col-mid-2">전화번호</td><td class="col-mid-3">010-7112-9084</td><td class="col-mid-2">주민번호</td><td class="col-mid-3">850716-1267825</td></tr><tr> <td class="col-mid-2">차임금</td><td class="col-mid-3">500,000 원</td><td class="col-mid-2">보증금</td><td class="col-mid-3">5,000,000 원</td></tr><tr> <td class="col-mid-2">계약 시작일</td><td class="col-mid-3">2014.04.25</td><td class="col-mid-2">계약 만료일</td><td class="col-mid-3">2015.04.24</td></tr><tr> <td class="col-mid-2">주소</td><td class="col-mid-8" colspan="3">11 Myrtle st. Somerville, MA 20145</td></tr><tr> <td class="col-mid-2" rowspan="2">보증인</td><td class="col-mid-2">이름</td><td class="col-mid-3">최소란</td><td class="col-mid-5" colspan="2"></td></tr><tr> <td class="col-mid-2">전화번호</td><td class="col-mid-3">010-5465-3404</td><td class="col-mid-2">주민번호</td><td class="col-mid-3">-</td></tr></tbody></table>').appendTo('#lesseeInfoSpan');
+			}
+			else{//dataExist == false
+				//$('#existData').hide();
+				//$('#newDataForm').hide();
+				//$('#newDataFormBtnConfirm').hide();
+				$('<div id="newDataEnterJumbotron" class="jumbotron"><p><a id="newDataEnterBtn" class="btn btn-primary btn-lg" href="#" role="button">새로운 데이터</a></p></div>').appendTo('#lesseeInfoSpan');
+			}
+		}
+		
+		
+		
+		
+		//********************************************************/
+		// 입력된 데이터의 유효성 검사 
+		//********************************************************/
+		function validationInput(){
+			var lName = $('input[name|="lesseeName"]');
+			var lPhone = $('input[name|="lesseePhone"]');
+			var lSSN = $('input[name|="lesseeSSN"]').val();
+			var lMonthlyFee = $('input[name|="lesseeMonthlyFee"]');
+			var lDeposit = $('input[name|="lesseeDeposit"]').val();
+			var lContractStart = $('input[name|="lesseeContractStart"]');
+			var lContractEnd = $('input[name|="lesseeContractEnd"]');
+			var lAddress = $('input[name|="lesseeAddress"]');
+			
+			var gName = $('input[name|="guarantorName"]');
+			var gPhone = $('input[name|="guarantorPhone"]');
+			var gSSN = $('input[name|="guarantorSSN"]');
+			
+			
+			var lNameResult = nameValidation(lName);
+			var lPhoneResult = phoneValidation(lPhone);
+			
+			if(lNameResult == true){
+				return true;
+			}else{
+				return false;
+			}
+			
+			function phoneValidation(phone){
+				
+			}
+			
+			function nameValidation(name){
+				if(name.val() == ""){
+					name.parent().addClass('form-group has-error');
+					return false;
+				}else{
+					name.parent().addClass('form-group has-success');
+					return true;
+				}
+			}
+	
+			
+		};
+		
+	
+	
+	
+		
+		
+		
+		
+		//********************************************************/
+		// 데이터 초기화
+		//********************************************************/
+		function init(){
+	
+			//********************************************************/
+			// 임차인 정보 유무 입력 //
+			//********************************************************/
+			lesseeInfoField(false);
+			
+			
+			
+			
+			//********************************************************/
+			// 임대 기간을 계산하고 Progress Bar에 적용
+			// 아래 3줄은 삭제 예정
+			//********************************************************/
+			var contractStart = new Date(2014, (4-1), 19);
+			var contractEnd = new Date(2015, (4-1), 18);
+			var contractCurrent = new Date();
+			
+			setProgress(contractStart, contractCurrent);
+			
+			
+			
+			//********************************************************/
+			// "미납" 검색 후, 해당 TR의 class를 danger 로 변경		
+			//********************************************************/
+			var notPaid = $("tr td:last-child:contains('미납')");
+			if(notPaid){
+				notPaid.parent().addClass('danger');
+			}
+		}
+	    
+
+
+    </script>
+  </head>
+  <body>
+    <header>
+    	<div class="mainHeader">
+    		<div class="buildingTitle">
+    			<span>덕안빌딩 ERP</span>
+    		</div>
+    		<div class="logout">
+    			<span><a href="#">Logout</a></span>
+    		</div>
+    	</div>
+    	<div class="locationHeader">
+    		<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li><a href="#">1층</a></li>
+			  <li class="active">101호</li>
+			</ol>
+    	</div>
+    </header>
+
+	<div id="wrap">
+		<div id="aside">
+			<ol class="sideMenu">
+				<li><a href="#">세입자 정보</a></li>
+				<li><a href="#">세입자 정보</a></li>
+			</ol>
+		</div>
+		<div id="section">
+			<div class="storySummary">
+				<span>층별 요약</span>
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td class="col-md-2">1 층</td>
+							<td class="col-mid-10">
+								<ol class="floorDetail">
+									<li><a class="in" href="#">101</a><li>
+									<li><a class="out" href="#">101</a><li>
+									<li><a class="in" href="#">101</a><li>
+									<li><a class="out" href="#">101</a><li>
+									<li><a class="in" href="#">101</a><li>
+								</ol>
+							</td>
+						</tr>	
+					</tbody>
+
+				</table>
+			</div>
+			
+			<div class="lesseeInfo">
+				<span id="lesseeInfoSpan">임차인 정보</span>
+
+				
+
+				
+			</div>
+			
+			<div class="dayprogress">
+				<span class="col-mid-4 left">2014.04.25</span>
+				<span class="col-mid-4 right">2015.04.24</span>
+				<div class="progress">
+				  <div id="dayProgress" class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" 
+				  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ;">
+				    0%
+				  </div>
+				</div>
+			</div>
+			
+			<div class="paymentInfo">
+				<table id="paymentTable" class="table table-striped">
+				  <tr>
+				    <th class="col-mid-2">월</th>
+				    <th class="col-mid-2">차임 금액</th>
+				    <th class="col-mid-2">입금 금액</th>
+				    <th class="col-mid-2">입금 예정일</th>
+				    <th class="col-mid-2">입금 일</th>
+				    <th class="col-mid-2">상태</th>
+				  </tr>
+				  <tr>
+				    <td>1</td>
+				    <td>500,000</td>
+				    <td>500,000</td>
+				    <td>2014.04.25</td>
+				    <td>2014.04.25</td>
+				    <td>완납</td>
+				  </tr>
+				  <tr>
+				    <td>2</td>
+				    <td>500,000</td>
+				    <td>500,000</td>
+				    <td>2014.05.25</td>
+				    <td>2014.05.25</td>
+				    <td>완납</td>
+				  </tr>
+				  <tr>
+				    <td>3</td>
+				    <td>500,000</td>
+				    <td>500,000</td>
+				    <td>2014.06.25</td>
+				    <td>2014.06.25</td>
+				    <td>완납</td>
+				  </tr>
+				  <tr>
+				    <td>4</td>
+				    <td>500,000</td>
+				    <td>500,000</td>
+				    <td>2014.07.25</td>
+				    <td>2014.07.25</td>
+				    <td>완납</td>
+				  </tr>
+				  <tr>
+				    <td>5</td>
+				    <td>500,000</td>
+				    <td>500,000</td>
+				    <td>2014.08.25</td>
+				    <td>2014.08.25</td>
+				    <td>완납</td>
+				  </tr>
+				  <tr>
+				    <td>6</td>
+				    <td>500,000</td>
+				    <td>-</td>
+				    <td>2014.09.25</td>
+				    <td>-</td>
+				    <td>미납</td>
+				  </tr>
+				  <tr>
+				    <td>7</td>
+				    <td>500,000</td>
+				    <td>500,000</td>
+				    <td>2014.10.25</td>
+				    <td>2014.10.25</td>
+				    <td>완납</td>
+				  </tr>
+				  <tr>
+				    <td>8</td>
+				    <td>500,000</td>
+				    <td>-</td>
+				    <td>2014.11.25</td>
+				    <td>-</td>
+				    <td>-</td>
+				  </tr>
+				  <tr>
+				    <td>9</td>
+				    <td>500,000</td>
+				    <td>-</td>
+				    <td>2014.12.25</td>
+				    <td>-</td>
+				    <td>-</td>
+				  </tr>
+				  <tr>
+				    <td>10</td>
+				    <td>500,000</td>
+				    <td>-</td>
+				    <td>2015.01.25</td>
+				    <td>-</td>
+				    <td>-</td>
+				  </tr>
+				  <tr>
+				    <td>11</td>
+				    <td>500,000</td>
+				    <td>-</td>
+				    <td>2015.02.25</td>
+				    <td>-</td>
+				    <td>미납</td>
+				  </tr>
+				  <tr>
+				    <td>12</td>
+				    <td>500,000</td>
+				    <td>-</td>
+				    <td>2015.03.25</td>
+				    <td>-</td>
+				    <td>-</td>
+				  </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+	
+	</footer>
+
+
+
+
+
+
+
+
+
+	<script>
+	
+	
+	</script>
+
+
+
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- ********************Delete Below******************** -->
+	<script src="../public/javascripts/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+	<!-- ********************Uncomment this********************
+	<script src="javascripts/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>"
+	 -->
+  </body>
+</html>
