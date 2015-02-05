@@ -1,8 +1,9 @@
 @MainMenu : 95px;
-@SideMenu : 150px;
-@MainHeader : 40px;
+@SideMenu : 160px;
+@MainHeader : 42px;
+@footNav : 30px;
 
-*, html, body{
+html, body{
 	height: 100%;
 	padding: 0;
 	margin: 0;
@@ -10,61 +11,70 @@
 
 body{
 	width: 100%;
-	height: 100%;
 	overflow: hidden;
 	background-color: white;
 
 	#mainMenu{
 		float: left;
-		width: @MainMenu;
 		height: 100%;
+		width: @MainMenu;
 		display: block;
 		background-color: red;
 	}
 
 	#contents{
+		height: 100%;
 		margin-left: @MainMenu;
 		overflow: hidden;
 
-		header{
+		#mainHeader{
 			float:left;
 			width: 100%;
 			height: @MainHeader;
-			display: block;
 			background-color: green;
 		}
 
 		#subMenu{
-			float:left;
-			width: @SideMenu;
+			float: left;
 			height: 100%;
+			width: @SideMenu;
 			display: block;
 			background-color: blue;
 
 		}
 
 		#wrapper{
-			margin-top: @MainHeader;
-			margin-left: @SideMenu;
-			width: 100%;
+			position: relative;
+			top: @MainHeader;
+			left: @SideMenu;
 			height: 100%;
+			width: 100%;
 			display: block;
-			background-color: yellow;
 
-			#mainContents{
+
+
+
+			#main{
+				position: absolute;
 				width: 100%;
-				height: ;
+				height: 100%;
+
 				display: block;
-				background-color: white;
+				background-color: yellow;
 			}
+
+
 			#footNav{
 				position: absolute;
-				bottom: 0;
+				bottom: @MainHeader;
 				width: 100%;
-				height: 20px;
+				height: @footNav;
 				display: block;
 				background-color: purple;
 			}
+
+			
+
 		}
 
 	}
