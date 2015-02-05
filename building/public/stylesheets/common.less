@@ -4,78 +4,86 @@
 @footNav : 30px;
 
 html, body{
-	height: 100%;
 	padding: 0;
 	margin: 0;
+	width: 100%;
+	height: 100%;
 }
 
 body{
-	width: 100%;
-	overflow: hidden;
-	background-color: white;
+	position: relative;
 
 	#mainMenu{
+		position: absolute;
 		float: left;
-		height: 100%;
 		width: @MainMenu;
+		height: 100%;
 		display: block;
+		
 		background-color: red;
 	}
-
-	#contents{
+	#content{
+		position: absolute;
+		float: left;
+		width: 100%;
 		height: 100%;
+		display: block;
 		margin-left: @MainMenu;
-		overflow: hidden;
 
-		#mainHeader{
-			float:left;
-			width: 100%;
+		#topNav{
+			width:100%;
 			height: @MainHeader;
+			display: block;
 			background-color: green;
 		}
 
-		#subMenu{
-			float: left;
-			height: 100%;
-			width: @SideMenu;
-			display: block;
-			background-color: blue;
-
-		}
-
 		#wrapper{
-			position: relative;
-			top: @MainHeader;
-			left: @SideMenu;
-			height: 100%;
 			width: 100%;
-			display: block;
+			height: 100%;
+			position: relative;
 
+			#subMenu{
+				position: absolute;
+				width: @SideMenu;
+				height: 100%;
+				bottom: @MainHeader;
+				display: block;
+				background-color: yellow;
 
-
+			}
 
 			#main{
 				position: absolute;
 				width: 100%;
 				height: 100%;
-
 				display: block;
-				background-color: yellow;
+				margin-left: @SideMenu;
+
+
+				#mainContent{
+					position: absolute;
+					top: 0;
+					bottom: @MainHeader;
+					width: 100%;
+					
+					display: block;
+					background-color: purple;
+				}
+				#mainFooter{
+					position: absolute;
+					bottom: @MainHeader;
+					width: 100%;
+					height: @footNav;
+					display: block;
+					background-color: green;
+				}
+
 			}
-
-
-			#footNav{
-				position: absolute;
-				bottom: @MainHeader;
-				width: 100%;
-				height: @footNav;
-				display: block;
-				background-color: purple;
-			}
-
-			
 
 		}
+	}		
 
-	}
 }
+
+
+
