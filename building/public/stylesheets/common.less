@@ -1,45 +1,71 @@
-html, body{
-	margin: 0;
+@MainMenu : 95px;
+@SideMenu : 150px;
+@MainHeader : 40px;
+
+*, html, body{
+	height: 100%;
 	padding: 0;
+	margin: 0;
 }
-html{
-	height: 100%;
-	overflow: auto;
-}
+
 body{
+	width: 100%;
 	height: 100%;
-	position: relative;
-}
-
-#wrapper{
-	position: absolute;
-	left: 0;
-	right: 0; 
-	top: 0;
-	bottom: 0;
 	overflow: hidden;
-	background-color: orange;
+	background-color: white;
 
-	#sideMenu{
-		width: 90px;
+	#mainMenu{
+		float: left;
+		width: @MainMenu;
 		height: 100%;
-		background-color: green;
+		display: block;
+		background-color: red;
 	}
+
 	#contents{
-		position: relative;
-		#mainHeader{
+		margin-left: @MainMenu;
+		overflow: hidden;
+
+		header{
+			float:left;
 			width: 100%;
-			height: 20px;
-			background-color: yellow;
+			height: @MainHeader;
+			display: block;
+			background-color: green;
 		}
-		#mainMenu{
-			width: 160px;
+
+		#subMenu{
+			float:left;
+			width: @SideMenu;
 			height: 100%;
+			display: block;
 			background-color: blue;
-		}
-		#mainContents{
 
 		}
+
+		#wrapper{
+			margin-top: @MainHeader;
+			margin-left: @SideMenu;
+			width: 100%;
+			height: 100%;
+			display: block;
+			background-color: yellow;
+
+			#mainContents{
+				width: 100%;
+				height: ;
+				display: block;
+				background-color: white;
+			}
+			#footNav{
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 20px;
+				display: block;
+				background-color: purple;
+			}
+		}
+
 	}
-
 }
