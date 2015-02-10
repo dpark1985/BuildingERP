@@ -1,4 +1,4 @@
-@MainMenu : 95px;
+@MainMenu : 94px;
 @SideMenu : 160px;
 @MainHeader : 42px;
 @footNav : 30px;
@@ -10,80 +10,69 @@ html, body{
 	height: 100%;
 }
 
+
 body{
-	position: relative;
+
 
 	#mainMenu{
 		position: absolute;
-		float: left;
+		top: 0;
+		left: 0;
 		width: @MainMenu;
-		height: 100%;
-		display: block;
-		
+		bottom: 0;
 		background-color: red;
+	}
+	#container{
+		position: absolute;
+		left: @MainMenu;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: blue;
+	
+	}
+	#header{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		height: @MainHeader;
+		background-color: green;
+	}
+	#sideMenu{
+		position: absolute;
+		left: 0;
+		top: @MainHeader;
+		bottom: 0;
+		width: @SideMenu;
+		background-color: yellow;
 	}
 	#content{
 		position: absolute;
-		float: left;
-		width: 100%;
-		height: 100%;
-		display: block;
-		margin-left: @MainMenu;
+		left: @SideMenu;
+		right: 0;
+		top: @MainHeader;
+		bottom: 0;
+		background-color: black;
 
-		#topNav{
-			width:100%;
-			height: @MainHeader;
-			display: block;
-			background-color: green;
+		#main{
+			position: absolute;
+			top: 0;
+			bottom: @footNav;
+			left: 0;
+			right: 0;
+			height: auto !important;
+			background-color: orange;
 		}
-
-		#wrapper{
-			width: 100%;
-			height: 100%;
-			position: relative;
-
-			#subMenu{
-				position: absolute;
-				width: @SideMenu;
-				height: 100%;
-				bottom: @MainHeader;
-				display: block;
-				background-color: yellow;
-
-			}
-
-			#main{
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				display: block;
-				margin-left: @SideMenu;
-
-
-				#mainContent{
-					position: absolute;
-					top: 0;
-					bottom: @MainHeader;
-					width: 100%;
-					
-					display: block;
-					background-color: purple;
-				}
-				#mainFooter{
-					position: absolute;
-					bottom: @MainHeader;
-					width: 100%;
-					height: @footNav;
-					display: block;
-					background-color: green;
-				}
-
-			}
-
+		#footer{
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: @footNav;
+			background-color: red;
 		}
-	}		
-
+	}
 }
-
 
 
