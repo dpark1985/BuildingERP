@@ -9,14 +9,69 @@
 <script src='javascripts/angular.min.js'></script>
 <script src='javascripts/less.min.js'></script>
 
+<script src="javascripts/jquery-1.11.2.min.js"></script>
+<script>
+   
+    $(function(){
 
+        var hide = false;
+
+
+        
+        $("#slideHide").click(function(event){
+            event.preventDefault();
+            if(hide == false){
+                $("#mainMenu").hide();
+                $("#container").css("left", 0);
+                hide = true;
+            }
+            else{
+                $("#mainMenu").show();
+                $("#container").css("left", 94);
+                hide = false;
+            }
+        });
+
+
+
+    });
+
+
+
+
+</script>
 
 </head>
 <body>
     <div id="mainMenu">
+        <a id="logo">
+            <span id="textbox1" href="#">BDERP
+            </span>
+        </a>
+        <ul id="Menulist">
+            <li id="menuA">
+                <a href="#">등록관리</a>
+            </li>
+            <li id="menuB">
+                <a href="#">임대관리</a>
+            </li>
+            <li id="menuC">
+                <a href="#">회계관리</a>
+            </li>
+            <li id="menuD">
+                <a href="#">건물/시설관리</a>
+            </li>
+            <li id="menuE">
+                <a href="#">데이터베이스</a>
+            </li>
+        </ul>
     </div>
     <div id="container">
         <div id="header">
+            <div id="slideHide">
+            </div>
+            <div>
+            </div>
         </div>
         <div id="sideMenu">
         </div>
@@ -30,7 +85,7 @@
 
 
 
-    <script src="javascripts/jquery-1.11.2.min.js"></script>
+    
     <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
